@@ -4,17 +4,22 @@ import { Recipe } from "../models";
 
 const useFetchRecipes = () => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
   const fetchData = () => {
+    setLoading(true);
     axios
       .get("https://dummyjson.com/recipes")
       .then((response) => {
-        console.log(response.data);
         if (response.data?.recipes) {
           setRecipes(response.data.recipes);
         }
       })
       .catch((error) => {
         console.error(error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -22,7 +27,7 @@ const useFetchRecipes = () => {
     fetchData();
   }, []);
 
-  return { recipes };
+  return { recipes, loading };
 };
 
 export default useFetchRecipes;

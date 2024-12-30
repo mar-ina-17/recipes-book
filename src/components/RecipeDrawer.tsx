@@ -16,7 +16,13 @@ const RecipeDrawer = ({ recipeId, opened, onClose }: DrawerProps) => {
   const { recipe } = useFetchSingleRecipe(recipeId);
 
   return (
-    <Drawer opened={opened} onClose={onClose} size="md" position="right">
+    <Drawer
+      opened={opened}
+      onClose={onClose}
+      size="md"
+      position="right"
+      closeButtonProps={{ "aria-label": "close drawer" }}
+    >
       {recipe ? (
         <>
           <Title order={2} mb={10}>
@@ -38,29 +44,31 @@ const RecipeDrawer = ({ recipeId, opened, onClose }: DrawerProps) => {
             radius={15}
           />
           <Text mt="sm">
-            <strong>Ingredients:</strong>
-            <Divider my="md" />
-
-            <List size="sm">
-              {recipe.ingredients.map((ingredient: string, i: number) => {
-                return <List.Item key={i}>{ingredient}</List.Item>;
-              })}
-            </List>
+            <strong>Ingredients:</strong>{" "}
           </Text>
+
+          <Divider my="md" />
+
+          <List size="sm">
+            {recipe.ingredients.map((ingredient: string, i: number) => {
+              return <List.Item key={i}>{ingredient}</List.Item>;
+            })}
+          </List>
 
           <Text mt="sm">
-            <strong>Instructions:</strong>
-            <Divider my="md" />
-
-            <List size="sm" type="ordered">
-              {recipe.instructions.map((instr: string, i: number) => {
-                return <List.Item key={i}>{instr}</List.Item>;
-              })}
-            </List>
+            <strong>Instructions:</strong>{" "}
           </Text>
+
+          <Divider my="md" />
+
+          <List size="sm" type="ordered">
+            {recipe.instructions.map((instr: string, i: number) => {
+              return <List.Item key={i}>{instr}</List.Item>;
+            })}
+          </List>
         </>
       ) : (
-        <Loader />
+        <Loader data-testid="loader" />
       )}
     </Drawer>
   );

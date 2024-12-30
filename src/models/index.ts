@@ -3,14 +3,14 @@ export type CardProps = {
   name: string;
   image: string;
   difficulty: string;
-  instructions: string;
+  instructions: string[];
 };
 
 export type Recipe = {
   id: number;
   name: string;
-  ingredients: string[] | string;
-  instructions: string;
+  ingredients: string[];
+  instructions: string[];
   difficulty: string;
   image: string;
   cookTimeMinutes: number;

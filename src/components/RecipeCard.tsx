@@ -20,30 +20,32 @@ const RecipeCard = ({
 
   return (
     <>
-      <Card shadow="sm" padding="lg" radius="md" withBorder h="100%">
-        <Card.Section>
-          <Image src={image} height={160} alt={name} />
-        </Card.Section>
+      {id && (
+        <Card shadow="sm" padding="lg" radius="md" withBorder h="100%">
+          <Card.Section>
+            <Image src={image || null} height={160} alt={name} aria-label="recipe-image"/>
+          </Card.Section>
 
-        <Group justify="space-between" mt="md" mb="xs">
-          <Text fw={500}>{name}</Text>
-          <Badge color="pink">{difficulty}</Badge>
-        </Group>
+          <Group justify="space-between" mt="md" mb="xs">
+            <Text fw={500}>{name}</Text>
+            <Badge color="pink">{difficulty}</Badge>
+          </Group>
 
-        <Text size="sm" c="dimmed" h={80}>
-          {truncatedInstructions}...
-        </Text>
+          <Text size="sm" c="dimmed" h={80}>
+            {truncatedInstructions}...
+          </Text>
 
-        <Button
-          color="purple"
-          fullWidth
-          mt="md"
-          radius="md"
-          onClick={openDrawer}
-        >
-          See full recipe
-        </Button>
-      </Card>
+          <Button
+            color="purple"
+            fullWidth
+            mt="md"
+            radius="md"
+            onClick={openDrawer}
+          >
+            See full recipe
+          </Button>
+        </Card>
+      )}
 
       <RecipeDrawer recipeId={id} opened={drawerOpened} onClose={closeDrawer} />
     </>

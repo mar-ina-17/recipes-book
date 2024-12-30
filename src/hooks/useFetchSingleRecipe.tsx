@@ -6,6 +6,7 @@ const useFetchSingleRecipe = (recipeId: number) => {
   const [recipe, setRecipe] = useState<Recipe>();
 
   useEffect(() => {
+
     const fetchRecipe = async () => {
       try {
         const response = await axios.get(
@@ -17,7 +18,7 @@ const useFetchSingleRecipe = (recipeId: number) => {
       }
     };
 
-    if (recipeId) {
+    if (recipeId > -1) {
       fetchRecipe();
     }
   }, [recipeId]);
