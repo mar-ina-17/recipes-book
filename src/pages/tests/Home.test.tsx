@@ -16,14 +16,14 @@ describe("Home Component", () => {
     render(
       <MantineProvider>
         <Home />
-      </MantineProvider>
+      </MantineProvider>,
     );
 
     expect(
-      screen.getByRole("heading", { name: /welcome to my cookbook!/i })
+      screen.getByRole("heading", { name: /welcome to my cookbook!/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/discover delicious recipes from around the world./i)
+      screen.getByText(/discover delicious recipes from around the world./i),
     ).toBeInTheDocument();
   });
 
@@ -31,7 +31,7 @@ describe("Home Component", () => {
     render(
       <MantineProvider>
         <Home />
-      </MantineProvider>
+      </MantineProvider>,
     );
 
     expect(screen.getByTestId("recipes-container")).toBeInTheDocument();
@@ -41,7 +41,7 @@ describe("Home Component", () => {
     render(
       <MantineProvider>
         <Home />
-      </MantineProvider>
+      </MantineProvider>,
     );
 
     const container = screen.getByRole("heading", {

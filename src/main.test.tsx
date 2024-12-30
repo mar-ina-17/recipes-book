@@ -25,7 +25,7 @@ describe("Entry Point (main.tsx)", () => {
     expect(mockRender).toHaveBeenCalledWith(
       <React.StrictMode>
         <App />
-      </React.StrictMode>
+      </React.StrictMode>,
     );
 
     document.body.removeChild(rootElement);

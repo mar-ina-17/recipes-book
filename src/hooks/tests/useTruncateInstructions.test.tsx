@@ -31,8 +31,8 @@ describe("useTruncateInstructions", () => {
 
     await waitFor(() =>
       expect(screen.getByTestId("truncated-instructions")).toHaveTextContent(
-        expectedResult
-      )
+        expectedResult,
+      ),
     );
   });
 
@@ -46,8 +46,8 @@ describe("useTruncateInstructions", () => {
 
     await waitFor(() =>
       expect(screen.getByTestId("truncated-instructions")).toHaveTextContent(
-        expectedResult
-      )
+        expectedResult,
+      ),
     );
   });
 
@@ -55,7 +55,9 @@ describe("useTruncateInstructions", () => {
     render(<TestComponent ingredients={null} />);
 
     await waitFor(() =>
-      expect(screen.getByTestId("truncated-instructions")).toHaveTextContent("")
+      expect(screen.getByTestId("truncated-instructions")).toHaveTextContent(
+        "",
+      ),
     );
   });
 
@@ -63,7 +65,9 @@ describe("useTruncateInstructions", () => {
     render(<TestComponent ingredients={undefined} />);
 
     await waitFor(() =>
-      expect(screen.getByTestId("truncated-instructions")).toHaveTextContent("")
+      expect(screen.getByTestId("truncated-instructions")).toHaveTextContent(
+        "",
+      ),
     );
   });
 
@@ -74,8 +78,8 @@ describe("useTruncateInstructions", () => {
 
     await waitFor(() =>
       expect(screen.getByTestId("truncated-instructions")).toHaveTextContent(
-        ingredients
-      )
+        ingredients,
+      ),
     );
   });
 
@@ -88,8 +92,8 @@ describe("useTruncateInstructions", () => {
 
     await waitFor(() =>
       expect(screen.getByTestId("truncated-instructions")).toHaveTextContent(
-        expectedResult
-      )
+        expectedResult,
+      ),
     );
   });
 });

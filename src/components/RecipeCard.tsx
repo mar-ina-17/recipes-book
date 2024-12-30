@@ -23,7 +23,12 @@ const RecipeCard = ({
       {id && (
         <Card shadow="sm" padding="lg" radius="md" withBorder h="100%">
           <Card.Section>
-            <Image src={image || null} height={160} alt={name} aria-label="recipe-image"/>
+            <Image
+              src={image || null}
+              height={160}
+              alt={name}
+              aria-label="recipe-image"
+            />
           </Card.Section>
 
           <Group justify="space-between" mt="md" mb="xs">

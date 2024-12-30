@@ -61,7 +61,7 @@ describe("RecipesContainer", () => {
     render(
       <MantineProvider>
         <RecipesContainer />
-      </MantineProvider>
+      </MantineProvider>,
     );
 
     await waitFor(() => {
@@ -76,7 +76,7 @@ describe("RecipesContainer", () => {
     render(
       <MantineProvider>
         <RecipesContainer />
-      </MantineProvider>
+      </MantineProvider>,
     );
 
     await waitFor(() => {
@@ -107,7 +107,7 @@ describe("RecipesContainer", () => {
     render(
       <MantineProvider>
         <RecipesContainer />
-      </MantineProvider>
+      </MantineProvider>,
     );
 
     await waitFor(() => {

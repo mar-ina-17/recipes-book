@@ -44,13 +44,13 @@ describe("useFetchSingleRecipe", () => {
     });
 
     await waitFor(() =>
-      expect(screen.getByText("Spaghetti Bolognese")).toBeInTheDocument()
+      expect(screen.getByText("Spaghetti Bolognese")).toBeInTheDocument(),
     );
     expect(
-      screen.getByText("Cook the pasta, prepare the sauce, and mix together.")
+      screen.getByText("Cook the pasta, prepare the sauce, and mix together."),
     ).toBeInTheDocument();
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      "https://dummyjson.com/recipes/1"
+      "https://dummyjson.com/recipes/1",
     );
   });
 
@@ -65,7 +65,7 @@ describe("useFetchSingleRecipe", () => {
     });
 
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      "https://dummyjson.com/recipes/1"
+      "https://dummyjson.com/recipes/1",
     );
     expect(consoleErrorSpy).toHaveBeenCalledWith(expect.any(Error));
 

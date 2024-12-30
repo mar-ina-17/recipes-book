@@ -49,11 +49,11 @@ describe("useFetchRecipes", () => {
     render(<TestComponent />);
 
     await waitFor(() =>
-      expect(screen.getByText("Spaghetti")).toBeInTheDocument()
+      expect(screen.getByText("Spaghetti")).toBeInTheDocument(),
     );
     expect(screen.getByText("Tacos")).toBeInTheDocument();
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      "https://dummyjson.com/recipes"
+      "https://dummyjson.com/recipes",
     );
   });
 
@@ -63,10 +63,10 @@ describe("useFetchRecipes", () => {
     render(<TestComponent />);
 
     await waitFor(() =>
-      expect(screen.getByText("No recipes found")).toBeInTheDocument()
+      expect(screen.getByText("No recipes found")).toBeInTheDocument(),
     );
     expect(mockedAxios.get).toHaveBeenCalledWith(
-      "https://dummyjson.com/recipes"
+      "https://dummyjson.com/recipes",
     );
   });
 });

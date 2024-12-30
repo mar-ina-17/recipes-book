@@ -6,11 +6,10 @@ const useFetchSingleRecipe = (recipeId: number) => {
   const [recipe, setRecipe] = useState<Recipe>();
 
   useEffect(() => {
-
     const fetchRecipe = async () => {
       try {
         const response = await axios.get(
-          `https://dummyjson.com/recipes/${recipeId}`
+          `https://dummyjson.com/recipes/${recipeId}`,
         );
         setRecipe(response.data);
       } catch (err) {

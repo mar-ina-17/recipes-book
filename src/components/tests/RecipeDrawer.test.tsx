@@ -25,7 +25,7 @@ describe("RecipeDrawer Component", () => {
     render(
       <MantineProvider>
         <RecipeDrawer recipeId={1} opened={true} onClose={jest.fn()} />
-      </MantineProvider>
+      </MantineProvider>,
     );
 
     expect(screen.getByRole("dialog")).toBeInTheDocument();
@@ -38,7 +38,7 @@ describe("RecipeDrawer Component", () => {
     render(
       <MantineProvider>
         <RecipeDrawer recipeId={1} opened={true} onClose={jest.fn()} />
-      </MantineProvider>
+      </MantineProvider>,
     );
 
     expect(await screen.findByText("Spaghetti Bolognese")).toBeInTheDocument();
@@ -48,7 +48,7 @@ describe("RecipeDrawer Component", () => {
 
     expect(screen.getByAltText("Spaghetti Bolognese")).toHaveAttribute(
       "src",
-      "https://via.placeholder.com/200"
+      "https://via.placeholder.com/200",
     );
 
     mockRecipe.ingredients.forEach((ingredient) => {
@@ -66,7 +66,7 @@ describe("RecipeDrawer Component", () => {
     render(
       <MantineProvider>
         <RecipeDrawer recipeId={1} opened={true} onClose={onCloseMock} />
-      </MantineProvider>
+      </MantineProvider>,
     );
 
     const closeButton = screen.getByRole("button", { name: /close/i });

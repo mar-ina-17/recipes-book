@@ -13,7 +13,7 @@ const mockRecipeDrawer = RecipeDrawer as jest.Mock;
 describe("RecipeCard Component", () => {
   beforeEach(() => {
     mockTruncateInstructions.mockImplementation((instructions) =>
-      instructions?.slice(0, 150)
+      instructions?.slice(0, 150),
     );
     mockRecipeDrawer.mockImplementation(({ opened, onClose }) =>
       opened ? (
@@ -23,7 +23,7 @@ describe("RecipeCard Component", () => {
             Close
           </button>
         </div>
-      ) : null
+      ) : null,
     );
   });
 
@@ -39,14 +39,14 @@ describe("RecipeCard Component", () => {
     render(
       <MantineProvider>
         <RecipeCard {...mockProps} />
-      </MantineProvider>
+      </MantineProvider>,
     );
 
     expect(screen.getByText("Spaghetti Bolognese")).toBeInTheDocument();
     expect(screen.getByText("Easy")).toBeInTheDocument();
     expect(screen.getByAltText("Spaghetti Bolognese")).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /see full recipe/i })
+      screen.getByRole("button", { name: /see full recipe/i }),
     ).toBeInTheDocument();
   });
 
@@ -54,7 +54,7 @@ describe("RecipeCard Component", () => {
     render(
       <MantineProvider>
         <RecipeCard {...mockProps} />
-      </MantineProvider>
+      </MantineProvider>,
     );
 
     expect(mockTruncateInstructions).toHaveBeenCalledWith([
@@ -66,7 +66,7 @@ describe("RecipeCard Component", () => {
     render(
       <MantineProvider>
         <RecipeCard {...mockProps} />
-      </MantineProvider>
+      </MantineProvider>,
     );
 
     const button = screen.getByRole("button", { name: /see full recipe/i });
@@ -79,7 +79,7 @@ describe("RecipeCard Component", () => {
     render(
       <MantineProvider>
         <RecipeCard {...mockProps} />
-      </MantineProvider>
+      </MantineProvider>,
     );
 
     const openButton = screen.getByRole("button", { name: /see full recipe/i });

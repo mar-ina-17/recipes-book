@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
 const useTruncateInstructions = (
-  ingredients: string | string[] | null | undefined
+  ingredients: string | string[] | null | undefined,
 ): string => {
   return useMemo(() => {
     if (Array.isArray(ingredients)) {
