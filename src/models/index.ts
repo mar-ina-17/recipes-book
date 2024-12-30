@@ -1,4 +1,5 @@
 export type CardProps = {
+  id: number;
   name: string;
   image: string;
   difficulty: string;
@@ -16,4 +17,10 @@ export type Recipe = {
   prepTimeMinutes: number;
   tags: string[];
   [key: string]: any;
+};
+
+export type DrawerProps = {
+  recipeId: number;
+  opened: boolean;
+  onClose: () => void;
 };

@@ -1,12 +1,12 @@
 import { Grid } from "@mantine/core";
-import fetchRecipesHook from "../hooks/useFetchRecipes";
+import useFetchRecipes from "../hooks/useFetchRecipes";
 import { Recipe } from "../models";
 import RecipeCard from "./RecipeCard";
 
 const RecipesContainer = () => {
-  const { recipes } = fetchRecipesHook();
+  const { recipes } = useFetchRecipes();
   return (
-    <Grid mx={40} mt={90} mb={30}>
+    <Grid mx={40} my={30}>
       {recipes &&
         recipes.map((recipe: Recipe) => {
           return (
