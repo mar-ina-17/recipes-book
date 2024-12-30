@@ -1,11 +1,16 @@
-import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import useTruncateInstructions from "../useTruncateInstructions";
 
-const TestComponent = ({ ingredients }: { ingredients: string | string[] | null | undefined }) => {
+const TestComponent = ({
+  ingredients,
+}: {
+  ingredients: string | string[] | null | undefined;
+}) => {
   const truncatedInstructions = useTruncateInstructions(ingredients);
 
-  return <div data-testid="truncated-instructions">{truncatedInstructions}</div>;
+  return (
+    <div data-testid="truncated-instructions">{truncatedInstructions}</div>
+  );
 };
 
 describe("useTruncateInstructions", () => {
@@ -25,7 +30,9 @@ describe("useTruncateInstructions", () => {
     const expectedResult = ingredients.join(" ").slice(0, 150);
 
     await waitFor(() =>
-      expect(screen.getByTestId("truncated-instructions")).toHaveTextContent(expectedResult)
+      expect(screen.getByTestId("truncated-instructions")).toHaveTextContent(
+        expectedResult
+      )
     );
   });
 
@@ -38,7 +45,9 @@ describe("useTruncateInstructions", () => {
     const expectedResult = ingredients.slice(0, 150);
 
     await waitFor(() =>
-      expect(screen.getByTestId("truncated-instructions")).toHaveTextContent(expectedResult)
+      expect(screen.getByTestId("truncated-instructions")).toHaveTextContent(
+        expectedResult
+      )
     );
   });
 
@@ -64,7 +73,9 @@ describe("useTruncateInstructions", () => {
     render(<TestComponent ingredients={ingredients} />);
 
     await waitFor(() =>
-      expect(screen.getByTestId("truncated-instructions")).toHaveTextContent(ingredients)
+      expect(screen.getByTestId("truncated-instructions")).toHaveTextContent(
+        ingredients
+      )
     );
   });
 
@@ -76,7 +87,9 @@ describe("useTruncateInstructions", () => {
     const expectedResult = ingredients.join(" ");
 
     await waitFor(() =>
-      expect(screen.getByTestId("truncated-instructions")).toHaveTextContent(expectedResult)
+      expect(screen.getByTestId("truncated-instructions")).toHaveTextContent(
+        expectedResult
+      )
     );
   });
 });

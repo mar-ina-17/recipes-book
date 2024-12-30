@@ -1,5 +1,5 @@
 import { MantineProvider } from "@mantine/core";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import useFetchSingleRecipe from "../../hooks/useFetchSingleRecipe";
 import RecipeDrawer from "../RecipeDrawer";
 
@@ -15,11 +15,7 @@ const mockRecipe = {
   cookTimeMinutes: 30,
   image: "https://via.placeholder.com/200",
   ingredients: ["Pasta", "Tomato Sauce", "Ground Beef", "Garlic"],
-  instructions: [
-    "Cook the pasta.",
-    "Prepare the sauce.",
-    "Combine and serve.",
-  ],
+  instructions: ["Cook the pasta.", "Prepare the sauce.", "Combine and serve."],
 };
 
 describe("RecipeDrawer Component", () => {
@@ -33,7 +29,7 @@ describe("RecipeDrawer Component", () => {
     );
 
     expect(screen.getByRole("dialog")).toBeInTheDocument();
-    expect(screen.getByTestId("loader")).toBeInTheDocument(); 
+    expect(screen.getByTestId("loader")).toBeInTheDocument();
   });
 
   it("renders the recipe details when recipe data is available", async () => {

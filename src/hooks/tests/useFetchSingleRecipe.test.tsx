@@ -1,5 +1,4 @@
-import React from "react";
-import { render, screen, waitFor, act } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import axios from "axios";
 import { Recipe } from "../../models";
 import useFetchSingleRecipe from "../useFetchSingleRecipe";
@@ -65,7 +64,6 @@ describe("useFetchSingleRecipe", () => {
       render(<TestComponent recipeId={1} />);
     });
 
-
     expect(mockedAxios.get).toHaveBeenCalledWith(
       "https://dummyjson.com/recipes/1"
     );
@@ -73,5 +71,4 @@ describe("useFetchSingleRecipe", () => {
 
     consoleErrorSpy.mockRestore();
   });
-
 });

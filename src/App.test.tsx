@@ -1,7 +1,5 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
-import Home from "./pages/Home";
 import { MantineProvider } from "@mantine/core";
 
 jest.mock("./pages/Home", () => jest.fn(() => <div data-testid="home-page">Mocked Home Component</div>));

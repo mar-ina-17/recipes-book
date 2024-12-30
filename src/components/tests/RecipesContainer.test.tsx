@@ -93,7 +93,7 @@ describe("RecipesContainer", () => {
         difficulty: "Easy",
         ingredients: [],
         instructions: [],
-        image: "", 
+        image: "",
         cookTimeMinutes: 30,
         prepTimeMinutes: 10,
         tags: [],
