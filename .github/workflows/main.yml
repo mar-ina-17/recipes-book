@@ -79,8 +79,8 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
           args: |
-            -Dsonar.projectKey=your_project_key
-            -Dsonar.organization=your_organization
+            -Dsonar.projectKey=mar-ina-17_recipes-book
+            -Dsonar.organization=mar-ina-17
             -Dsonar.branch.name=main
             -Dsonar.sources=src
             -Dsonar.tests=src
