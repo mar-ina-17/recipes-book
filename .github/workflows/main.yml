@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "main"
+      - "sonar-tests"
   pull_request:
     branches:
       - "main"
@@ -84,8 +85,7 @@ jobs:
             -Dsonar.branch.name=main
             -Dsonar.sources=src
             -Dsonar.tests=src
-            -Dsonar.inclusions=**/*.{ts,tsx,js,jsx}
-            -Dsonar.test.inclusions=**/*.test.tsx,**/*.test.ts
+            -Dsonar.test.inclusions=**/*.test.tsx,**/*.test.ts,**/*.{ts,tsx,js,jsx}
             -Dsonar.exclusions=**/node_modules/**,**/dist/**
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
             -Dsonar.typescript.tsconfigPath=tsconfig.json
