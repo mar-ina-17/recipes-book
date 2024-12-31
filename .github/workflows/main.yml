@@ -51,7 +51,7 @@ jobs:
       - name: Build the project
         run: npm run build
 
-  sonarscan:
+  SonarCloudScan:
     needs: build
     runs-on: ubuntu-latest
 
