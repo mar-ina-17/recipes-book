@@ -78,7 +78,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
-          args: |
+          args: >
             -Dsonar.projectKey=mar-ina-17_recipes-book
             -Dsonar.organization=mar-ina-17
             -Dsonar.branch.name=main
