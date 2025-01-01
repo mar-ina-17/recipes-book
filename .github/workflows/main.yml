@@ -106,3 +106,33 @@ jobs:
       - name: Push Docker image to Docker Hub
         if: success()
         run: docker push ${{ secrets.DOCKER_USERNAME }}/recipes-book:latest
+
+  DeployToMinikube:
+    runs-on: ubuntu-latest
+    needs: DockerActions
+    steps:
+      - name: Install Kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: "latest"
+
+      - name: Install Minikube
+        run: |
+          curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+          sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+      - name: Start Minikube
+        run: minikube start --driver=none
+
+      - name: Set up Docker environment for Minikube
+        run: eval $(minikube docker-env)
+
+      - name: Deploy to Minikube
+        run: |
+          kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/service.yaml
+
+      - name: Verify Deployment
+        run: |
+          kubectl rollout status deployment/recipes-book
+          kubectl get all
