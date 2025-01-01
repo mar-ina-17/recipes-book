@@ -9,7 +9,7 @@ on:
       - "main"
 
 jobs:
-  UnitTest_Lint_Format:
+  ProjectActions:
     runs-on: ubuntu-latest
     steps:
       # Checkout the repository
@@ -44,7 +44,7 @@ jobs:
 
   SonarCloudScan:
     runs-on: ubuntu-latest
-    needs: UnitTest_Lint_Format
+    needs: ProjectActions
     steps:
       # Checkout the repository
       - name: Checkout repository
@@ -80,47 +80,9 @@ jobs:
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
             -Dsonar.typescript.tsconfigPath=tsconfig.json
 
-  # DockerActions:
-  #   runs-on: ubuntu-latest
-  #   needs: ["UnitTest_Lint_Format", "SonarCloudScan"]
-  #   steps:
-  #     # Checkout the repository
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v3
-
-  #     # Log in to Docker Hub
-  #     - name: Log in to Docker Hub
-  #       run: echo ${{ secrets.DOCKER_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-
-  #     # Build Docker Image
-  #     - name: Build Docker image
-  #       run: docker build -t ${{ secrets.DOCKER_USERNAME }}/recipes-book:latest .
-
-  #     # Push Docker Image to Docker Hub
-  #     - name: Push Docker image
-  #       run: docker push ${{ secrets.DOCKER_USERNAME }}/recipes-book:latest
-
-  # Trivy:
-  #   runs-on: ubuntu-latest
-  #   needs: DockerActions
-  #   steps:
-  #     # Checkout the repository
-  #     - name: Checkout to repository
-  #       uses: actions/checkout@v3
-
-  #     # Run Trivy from repository
-  #     - name: Run Trivy
-  #       uses: aquasecurity/trivy-action@master
-  #       with:
-  #         image-ref: "${{ secrets.DOCKER_USERNAME }}/recipes-book:latest"
-  #         format: "table"
-  #         exit-code: "1"
-  #         ignore-unfixed: true
-  #         vuln-type: "os,library"
-  #         severity: "CRITICAL,HIGH"
   DockerActions:
     runs-on: ubuntu-latest
-    needs: ["UnitTest_Lint_Format", "SonarCloudScan"]
+    needs: ["ProjectActions", "SonarCloudScan"]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
