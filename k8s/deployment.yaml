@@ -16,10 +16,9 @@ spec:
     spec:
       containers:
         - name: recipes-book
-          image: ${{ secrets.DOCKER_USERNAME }}/recipes-book:latest
+          image: docker.io/marinamj/recipes-book:latest
           ports:
             - containerPort: 3000
           env:
             - name: NODE_ENV
               value: production
-
